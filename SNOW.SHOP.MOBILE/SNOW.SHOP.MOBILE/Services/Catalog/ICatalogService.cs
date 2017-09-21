@@ -12,7 +12,7 @@ namespace SNOW.SHOP.MOBILE.Services.Catalog
     {
         Task<ObservableCollection<CatalogBrand>> GetCatalogBrandAsync();
         Task<ObservableCollection<CatalogProduct>> FilterAsync(int catalogBrandId, int catalogTypeId);
-        Task<ObservableCollection<CatalogCategory>> GetCatalogTypeAsync();
+        Task<ObservableCollection<CatalogCategory>> GetCatalogCategoryAsync();
         Task<ObservableCollection<CatalogProduct>> GetCatalogAsync();
     }
 }

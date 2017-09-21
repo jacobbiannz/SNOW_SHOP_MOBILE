@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using SNOW.SHOP.MOBILE.Models.Catalog;
 using SNOW.SHOP.MOBILE.Services.RequestProvider;
+using SNOW.SHOP.MOBILE.Extensions;
 
 namespace SNOW.SHOP.MOBILE.Services.Catalog
 {
@@ -22,7 +23,7 @@ namespace SNOW.SHOP.MOBILE.Services.Catalog
         {
             UriBuilder builder = new UriBuilder(GlobalSetting.Instance.CatalogEndpoint);
 
-            builder.Path = string.Format("api/v1/catalog/items/type/{0}/brand/{1}", CatalogCategoryId, catalogBrandId);
+            builder.Path = string.Format("api/product/products/category/{0}/brand/{1}", CatalogCategoryId, catalogBrandId);
 
             string uri = builder.ToString();
 
@@ -39,7 +40,7 @@ namespace SNOW.SHOP.MOBILE.Services.Catalog
         {
             UriBuilder builder = new UriBuilder(GlobalSetting.Instance.CatalogEndpoint);
 
-            builder.Path = "api/v1/catalog/items";
+            builder.Path = "api/product/products";
 
             string uri = builder.ToString();
 
@@ -48,7 +49,7 @@ namespace SNOW.SHOP.MOBILE.Services.Catalog
 
             if (catalog?.Data != null)
             {
-                ServicesHelper.FixCatalogProductPictureUri(catalog?.Data);
+                //ServicesHelper.FixCatalogProductPictureUri(catalog?.Data);
 
                 return catalog?.Data.ToObservableCollection();
             }
@@ -56,11 +57,12 @@ namespace SNOW.SHOP.MOBILE.Services.Catalog
                 return new ObservableCollection<CatalogProduct>();
         }
 
+        
         public async Task<ObservableCollection<CatalogBrand>> GetCatalogBrandAsync()
         {
             UriBuilder builder = new UriBuilder(GlobalSetting.Instance.CatalogEndpoint);
 
-            builder.Path = "api/v1/catalog/catalogbrands";
+            builder.Path = "api/brand/brands";
 
             string uri = builder.ToString();
 
@@ -72,20 +74,21 @@ namespace SNOW.SHOP.MOBILE.Services.Catalog
             else
                 return new ObservableCollection<CatalogBrand>();
         }
+        
 
         public async Task<ObservableCollection<CatalogCategory>> GetCatalogCategoryAsync()
         {
             UriBuilder builder = new UriBuilder(GlobalSetting.Instance.CatalogEndpoint);
 
-            builder.Path = "api/v1/catalog/CatalogCategorys";
+            builder.Path = "api/category/categorys";
 
             string uri = builder.ToString();
 
-            IEnumerable<CatalogCategory> types =
+            IEnumerable<CatalogCategory> categories =
                     await _requestProvider.GetAsync<IEnumerable<CatalogCategory>>(uri);
 
-            if (types != null)
-                return types.ToObservableCollection();
+            if (categories != null)
+                return categories.ToObservableCollection();
             else
                 return new ObservableCollection<CatalogCategory>();
         }
