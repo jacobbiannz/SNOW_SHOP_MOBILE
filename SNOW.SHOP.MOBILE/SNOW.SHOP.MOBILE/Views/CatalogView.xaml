@@ -33,6 +33,7 @@
                         Value="Center" />
             </Style>
 
+            <!--
             <animations:StoryBoard 
                 x:Key="ProductsAnimation"    
                 Target="{x:Reference Products}">
@@ -41,15 +42,18 @@
                     Duration="1500"
                     Delay="250"/>
             </animations:StoryBoard>
-
+            -->
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Triggers>
         <EventTrigger 
             Event="Appearing">
+            <!--
             <triggers:BeginAnimation   
                 Animation="{StaticResource ProductsAnimation}" />
+        -->
         </EventTrigger>
+            
     </ContentPage.Triggers>
     <Grid  
         ColumnSpacing="0"
@@ -89,16 +93,20 @@
                 SeparatorVisibility="None"
                 CachingStrategy="RecycleElement"
                 Style="{StaticResource ProductsListStyle}">
+                <!--
                 <ListView.Behaviors>
                     <behaviors:EventToCommandBehavior                    
                         EventName="ItemTapped"
                         Command="{Binding AddCatalogItemCommand}"
                         EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}" />
                 </ListView.Behaviors>
+                -->
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <!--
                             <templates:ProductTemplate />
+                            -->
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

@@ -7,10 +7,10 @@ using SNOW.SHOP.MOBILE.Helpers;
 using SNOW.SHOP.MOBILE.Services;
 using SNOW.SHOP.MOBILE.ViewModels.Base;
 using System.Threading.Tasks;
-using SNOW.SHOP.MOBILE.Services.Navigation;
-using SNOW.SHOP.MOBILE.Models.Location;
-using SNOW.SHOP.MOBILE.Services.Location;
-using Plugin.Geolocator;
+//using SNOW.SHOP.MOBILE.Services.Navigation;
+//using SNOW.SHOP.MOBILE.Models.Location;
+//using SNOW.SHOP.MOBILE.Services.Location;
+//using Plugin.Geolocator;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -30,22 +30,22 @@ namespace SNOW.SHOP.MOBILE
 
             if (Device.RuntimePlatform == Device.Windows)
             {
-                InitNavigation();
+                //InitNavigation();
             }
         }
 
         private void InitApp()
         {
-            UseMockServices = Settings.UseMocks;
+            //UseMockServices = Settings.UseMocks;
             ViewModelLocator.RegisterDependencies(UseMockServices);
         }
-
+        /*
         private Task InitNavigation()
         {
             var navigationService = ViewModelLocator.Resolve<INavigationService>();
             return navigationService.InitializeAsync();
         }
-
+        */
 
         protected override async void OnStart()
         {
@@ -53,9 +53,9 @@ namespace SNOW.SHOP.MOBILE
 
             if (Device.RuntimePlatform != Device.Windows)
             {
-                await InitNavigation();
+                //await InitNavigation();
             }
-
+            /*
             if (Settings.AllowGpsLocation && !Settings.UseFakeLocation)
             {
                 await GetGpsLocation();
@@ -65,7 +65,7 @@ namespace SNOW.SHOP.MOBILE
             {
                 await SendCurrentLocation();
             }
-
+            */
             base.OnResume();
         }
 
@@ -73,7 +73,7 @@ namespace SNOW.SHOP.MOBILE
         {
             // Handle when your app sleeps
         }
-
+        /*
         private async Task GetGpsLocation()
         {
             var locator = CrossGeolocator.Current;
@@ -106,5 +106,6 @@ namespace SNOW.SHOP.MOBILE
             await locationService.UpdateUserLocation(location,
                 Settings.AuthAccessToken);
         }
+        */
     }
 }

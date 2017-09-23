@@ -178,7 +178,7 @@
                 iOS="Bold" />
 
             <!-- CONVERTERS -->
-            <converters:CountToBoolConverter x:Key="CountToBoolConverter" />
+            <!--<converters:CountToBoolConverter x:Key="CountToBoolConverter" />
             <converters:DatetimeConverter x:Key="DatetimeConverter" />
             <converters:ImageConverter x:Key="ImageConverter" />
             <converters:ItemTappedEventArgsConverter x:Key="ItemTappedEventArgsConverter" />
@@ -186,7 +186,8 @@
             <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
             <converters:ItemsToHeightConverter x:Key="ItemsToHeightConverter" />
             <converters:ToUpperConverter x:Key="ToUpperConverter" />
-
+            -->
+            
             <!-- EXPLICIT STYLES -->
             <Style x:Key="ValidationErrorLabelStyle"
 				   TargetType="{x:Type Label}">
@@ -214,10 +215,12 @@
                         Value="Transparent" />
                 <Setter Property="Opacity"
                         Value="0.6" />
+                <!--
                 <Setter Property="behaviors:LineColorBehavior.ApplyLineColor"
                         Value="True" />
                 <Setter Property="behaviors:LineColorBehavior.LineColor"
                         Value="{StaticResource BlackColor}" />
+                -->
                 <Style.Triggers>
                     <Trigger TargetType="Entry"
                              Property="IsFocused" 
@@ -245,17 +248,21 @@
                         Value="Transparent" />
                 <Setter Property="Opacity"
                         Value="0.6" />
+                <!--
                 <Setter Property="behaviors:LineColorBehavior.ApplyLineColor"
                         Value="True" />
                 <Setter Property="behaviors:LineColorBehavior.LineColor"
                         Value="Gray" />
+                -->
                 <Style.Triggers>
                     <Trigger TargetType="Entry"
                        Property="IsFocused"
                        Value="True">
                         <Setter Property="Opacity" Value="1" />
+                       <!--
                         <Setter Property="behaviors:LineColorBehavior.LineColor"                        
                                 Value="{StaticResource GreenColor}" />
+                        -->
                     </Trigger>
                 </Style.Triggers>
             </Style>

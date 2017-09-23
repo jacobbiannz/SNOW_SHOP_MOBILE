@@ -7,6 +7,7 @@ using Autofac;
 using System.Globalization;
 using System.Reflection;
 using Xamarin.Forms;
+using SNOW.SHOP.MOBILE.Services.Catalog;
 
 namespace SNOW.SHOP.MOBILE.ViewModels.Base
 {
@@ -34,8 +35,9 @@ namespace SNOW.SHOP.MOBILE.ViewModels.Base
             var builder = new ContainerBuilder();
 
             // View models
-            builder.RegisterType<BasketViewModel>();
+           // builder.RegisterType<BasketViewModel>();
             builder.RegisterType<CatalogViewModel>();
+            /*
             builder.RegisterType<CheckoutViewModel>();
             builder.RegisterType<LoginViewModel>();
             builder.RegisterType<MainViewModel>();
@@ -44,33 +46,36 @@ namespace SNOW.SHOP.MOBILE.ViewModels.Base
             builder.RegisterType<SettingsViewModel>();
             builder.RegisterType<CampaignViewModel>();
             builder.RegisterType<CampaignDetailsViewModel>();
-
+            */
             // Services
+            /*
             builder.RegisterType<NavigationService>().As<INavigationService>().SingleInstance();
             builder.RegisterType<DialogService>().As<IDialogService>();
             builder.RegisterType<OpenUrlService>().As<IOpenUrlService>();
             builder.RegisterType<IdentityService>().As<IIdentityService>();
             builder.RegisterType<RequestProvider>().As<IRequestProvider>();
             builder.RegisterType<LocationService>().As<ILocationService>().SingleInstance();
-
+            */
             if (useMockServices)
             {
+                /*
                 builder.RegisterInstance(new CatalogMockService()).As<ICatalogService>();
                 builder.RegisterInstance(new BasketMockService()).As<IBasketService>();
                 builder.RegisterInstance(new OrderMockService()).As<IOrderService>();
                 builder.RegisterInstance(new UserMockService()).As<IUserService>();
                 builder.RegisterInstance(new CampaignMockService()).As<ICampaignService>();
-
+                */
                 UseMockService = true;
             }
             else
             {
                 builder.RegisterType<CatalogService>().As<ICatalogService>().SingleInstance();
+                /*
                 builder.RegisterType<BasketService>().As<IBasketService>().SingleInstance();
                 builder.RegisterType<OrderService>().As<IOrderService>().SingleInstance();
                 builder.RegisterType<UserService>().As<IUserService>().SingleInstance();
                 builder.RegisterType<CampaignService>().As<ICampaignService>().SingleInstance();
-
+                */
                 UseMockService = false;
             }
 

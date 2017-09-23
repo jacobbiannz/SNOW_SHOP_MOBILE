@@ -102,7 +102,7 @@ namespace SNOW.SHOP.MOBILE.ViewModels
         private void AddCatalogProduct(CatalogProduct CatalogProduct)
         {
             // Add new item to Basket
-            MessagingCenter.Send(this, MessageKeys.AddProduct, CatalogProduct);
+            //MessagingCenter.Send(this, MessageKeys.AddProduct, CatalogProduct);
         }
 
         private async Task FilterAsync()
@@ -115,7 +115,7 @@ namespace SNOW.SHOP.MOBILE.ViewModels
             IsBusy = true;
 
             // Filter catalog products
-            MessagingCenter.Send(this, MessageKeys.Filter);
+           // MessagingCenter.Send(this, MessageKeys.Filter);
             Products = await _productsService.FilterAsync(Brand.Id, Type.Id);
 
             IsBusy = false;
