@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:App1"
              x:Class="SNOW.SHOP.MOBILE.MainPage">
 
-    <Label Text="Welcome to Xamarin Forms!" 
+    <Label Text="Welcome to Xamarin Forms! - Jacob Testing Mobile" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
 
