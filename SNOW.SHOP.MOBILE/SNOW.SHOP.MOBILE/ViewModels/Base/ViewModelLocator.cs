@@ -8,6 +8,8 @@ using System.Globalization;
 using System.Reflection;
 using Xamarin.Forms;
 using SNOW.SHOP.MOBILE.Services.Catalog;
+using SNOW.SHOP.MOBILE.Services.Navigation;
+using SNOW.SHOP.MOBILE.Services.RequestProvider;
 
 namespace SNOW.SHOP.MOBILE.ViewModels.Base
 {
@@ -48,18 +50,22 @@ namespace SNOW.SHOP.MOBILE.ViewModels.Base
             builder.RegisterType<CampaignDetailsViewModel>();
             */
             // Services
-            /*
+            
             builder.RegisterType<NavigationService>().As<INavigationService>().SingleInstance();
+            /*
             builder.RegisterType<DialogService>().As<IDialogService>();
             builder.RegisterType<OpenUrlService>().As<IOpenUrlService>();
             builder.RegisterType<IdentityService>().As<IIdentityService>();
+            */
             builder.RegisterType<RequestProvider>().As<IRequestProvider>();
+            /*
             builder.RegisterType<LocationService>().As<ILocationService>().SingleInstance();
             */
             if (useMockServices)
             {
-                /*
+              
                 builder.RegisterInstance(new CatalogMockService()).As<ICatalogService>();
+                /*
                 builder.RegisterInstance(new BasketMockService()).As<IBasketService>();
                 builder.RegisterInstance(new OrderMockService()).As<IOrderService>();
                 builder.RegisterInstance(new UserMockService()).As<IUserService>();

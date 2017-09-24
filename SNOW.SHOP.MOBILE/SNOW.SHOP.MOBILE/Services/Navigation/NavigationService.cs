@@ -32,8 +32,10 @@ namespace SNOW.SHOP.MOBILE.Services.Navigation
                 return NavigateToAsync<LoginViewModel>();
             else
                 return NavigateToAsync<MainViewModel>();
-                */
-            return NavigateToAsync<CatalogViewModel>();
+            */
+
+            //return NavigateToAsync<CatalogViewModel>();
+            return NavigateToAsync<MainViewModel>();
         }
 
         public Task NavigateToAsync<TViewModel>() where TViewModel : ViewModelBase

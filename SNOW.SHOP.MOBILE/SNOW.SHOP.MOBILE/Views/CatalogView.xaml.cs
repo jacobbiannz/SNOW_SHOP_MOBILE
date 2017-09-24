@@ -15,12 +15,12 @@ namespace SNOW.SHOP.MOBILE.Views
 {
     public partial class CatalogView : ContentPage, IMenuContainerPage
     {
-       // private FiltersView _filterView = new FiltersView();
+        //private FiltersView _filterView = new FiltersView();
 
         public CatalogView()
         {
             InitializeComponent();
-
+           
             //SlideMenu = _filterView;
             /*
             MessagingCenter.Subscribe<CatalogViewModel>(this, MessageKeys.Filter, (sender) =>
@@ -52,7 +52,7 @@ namespace SNOW.SHOP.MOBILE.Views
         {
             base.OnBindingContextChanged();
 
-            //_filterView.BindingContext = BindingContext;
+           // _filterView.BindingContext = BindingContext;
         }
 
         private void OnFilterChanged(object sender, EventArgs e)
