@@ -33,9 +33,11 @@ namespace SNOW.SHOP.MOBILE.Services.Navigation
             else
                 return NavigateToAsync<MainViewModel>();
             */
-
-            //return NavigateToAsync<CatalogViewModel>();
+            
+            //return NavigateToAsync<LoginViewModel>();
             return NavigateToAsync<MainViewModel>();
+            //return NavigateToAsync<CatalogViewModel>();
+
         }
 
         public Task NavigateToAsync<TViewModel>() where TViewModel : ViewModelBase
@@ -79,12 +81,12 @@ namespace SNOW.SHOP.MOBILE.Services.Navigation
 
         private async Task InternalNavigateToAsync(Type viewModelType, object parameter)
         {
+            
             Page page = CreatePage(viewModelType, parameter);
-
-            //if (page is LoginView)
-
-            if (page is null)
-                {
+            
+            if (page is LoginView)
+            {
+                //Application.Current.MainPage = new NavigationPage(page);
                 Application.Current.MainPage = new CustomNavigationView(page);
             }
             else
@@ -99,8 +101,9 @@ namespace SNOW.SHOP.MOBILE.Services.Navigation
                     Application.Current.MainPage = new CustomNavigationView(page);
                 }
             }
-
+            
             await (page.BindingContext as ViewModelBase).InitializeAsync(parameter);
+
         }
 
         private Type GetPageTypeForViewModel(Type viewModelType)

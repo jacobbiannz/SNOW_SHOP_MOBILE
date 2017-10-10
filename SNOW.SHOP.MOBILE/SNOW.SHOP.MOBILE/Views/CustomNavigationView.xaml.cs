@@ -11,6 +11,7 @@ namespace SNOW.SHOP.MOBILE.Views
 {
     public partial class CustomNavigationView : NavigationPage
     {
+        
         public CustomNavigationView() : base()
         {
             InitializeComponent();
@@ -20,5 +21,6 @@ namespace SNOW.SHOP.MOBILE.Views
         {
             InitializeComponent();
         }
+        
     }
 }

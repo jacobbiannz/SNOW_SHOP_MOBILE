@@ -9,6 +9,9 @@ using System.Reflection;
 using Xamarin.Forms;
 using SNOW.SHOP.MOBILE.Services.Catalog;
 using SNOW.SHOP.MOBILE.Services.Navigation;
+using SNOW.SHOP.MOBILE.Services.Identity;
+using SNOW.SHOP.MOBILE.Services.OpenUrl;
+using SNOW.SHOP.MOBILE.Services.User;
 using SNOW.SHOP.MOBILE.Services.RequestProvider;
 
 namespace SNOW.SHOP.MOBILE.ViewModels.Base
@@ -39,24 +42,24 @@ namespace SNOW.SHOP.MOBILE.ViewModels.Base
             // View models
            // builder.RegisterType<BasketViewModel>();
             builder.RegisterType<CatalogViewModel>();
-            /*
-            builder.RegisterType<CheckoutViewModel>();
+            
+            //builder.RegisterType<CheckoutViewModel>();
             builder.RegisterType<LoginViewModel>();
             builder.RegisterType<MainViewModel>();
-            builder.RegisterType<OrderDetailViewModel>();
-            builder.RegisterType<ProfileViewModel>();
+            //builder.RegisterType<OrderDetailViewModel>();
+            //builder.RegisterType<ProfileViewModel>();
             builder.RegisterType<SettingsViewModel>();
-            builder.RegisterType<CampaignViewModel>();
-            builder.RegisterType<CampaignDetailsViewModel>();
-            */
+            //builder.RegisterType<CampaignViewModel>();
+            //builder.RegisterType<CampaignDetailsViewModel>();
+            
             // Services
             
             builder.RegisterType<NavigationService>().As<INavigationService>().SingleInstance();
-            /*
-            builder.RegisterType<DialogService>().As<IDialogService>();
+            
+            //builder.RegisterType<DialogService>().As<IDialogService>();
             builder.RegisterType<OpenUrlService>().As<IOpenUrlService>();
             builder.RegisterType<IdentityService>().As<IIdentityService>();
-            */
+            
             builder.RegisterType<RequestProvider>().As<IRequestProvider>();
             /*
             builder.RegisterType<LocationService>().As<ILocationService>().SingleInstance();
@@ -65,12 +68,12 @@ namespace SNOW.SHOP.MOBILE.ViewModels.Base
             {
               
                 builder.RegisterInstance(new CatalogMockService()).As<ICatalogService>();
-                /*
-                builder.RegisterInstance(new BasketMockService()).As<IBasketService>();
-                builder.RegisterInstance(new OrderMockService()).As<IOrderService>();
+                
+                //builder.RegisterInstance(new BasketMockService()).As<IBasketService>();
+                //builder.RegisterInstance(new OrderMockService()).As<IOrderService>();
                 builder.RegisterInstance(new UserMockService()).As<IUserService>();
-                builder.RegisterInstance(new CampaignMockService()).As<ICampaignService>();
-                */
+                //builder.RegisterInstance(new CampaignMockService()).As<ICampaignService>();
+                
                 UseMockService = true;
             }
             else

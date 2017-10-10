@@ -2,8 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SNOW.SHOP.MOBILE.Views.CatalogView"   
-
+             xmlns:templates="clr-namespace:SNOW.SHOP.MOBILE.Views.Templates;assembly=SNOW.SHOP.MOBILE"
+             xmlns:views="clr-namespace:SNOW.SHOP.MOBILE.Views;assembly=SNOW.SHOP.MOBILE"
+		     xmlns:viewModelBase="clr-namespace:SNOW.SHOP.MOBILE.ViewModels.Base;assembly=SNOW.SHOP.MOBILE"
+             xmlns:animations="clr-namespace:SNOW.SHOP.MOBILE.Animations;assembly=SNOW.SHOP.MOBILE"
+             xmlns:triggers="clr-namespace:SNOW.SHOP.MOBILE.Triggers;assembly=SNOW.SHOP.MOBILE"
+             xmlns:behaviors="clr-namespace:SNOW.SHOP.MOBILE.Behaviors;assembly=SNOW.SHOP.MOBILE"
+			 viewModelBase:ViewModelLocator.AutoWireViewModel="True"
              Title="Catalog">
+
     <ContentPage.Resources>
         <ResourceDictionary>
 
@@ -26,8 +33,7 @@
                 <Setter Property="VerticalOptions"
                         Value="Center" />
             </Style>
-
-            <!--
+<!--
             <animations:StoryBoard 
                 x:Key="ProductsAnimation"    
                 Target="{x:Reference Products}">
@@ -36,26 +42,95 @@
                     Duration="1500"
                     Delay="250"/>
             </animations:StoryBoard>
-            -->
+-->
+            
         </ResourceDictionary>
     </ContentPage.Resources>
-    <!--
-    <ContentPage.Triggers>
-        <EventTrigger 
-            Event="Appearing">
-            
-            <triggers:BeginAnimation   
-                Animation="{StaticResource ProductsAnimation}" />
-        
-        </EventTrigger>
-    </ContentPage.Triggers>
-    -->
-    
-    <Label Text="Welcome to Xamarin Forms! - Jacob 5" 
+
+    <Label Text="Welcome to Xamarin Forms! - Jacob 11" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
-    
-    
 
-    
+    <Grid  
+        ColumnSpacing="0"
+        RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- FILTERS -->
+        <Grid
+            BackgroundColor="{StaticResource LightGreenColor}">
+            <Label 
+                Text="FILTER"
+                Style="{StaticResource FilterLabelStyle}"/>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer 
+                        Tapped="OnFilterChanged"
+                        NumberOfTapsRequired="1" />
+            </Grid.GestureRecognizers>
+        </Grid>
+
+
+        <!-- CATALOG -->
+        <Grid  
+            Grid.Row="1">
+            <!--
+            <Grid 
+                IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}">
+            -->
+            <Grid 
+                IsVisible="{Binding IsBusy}">
+
+                   
+                <Label 
+                    Text="NO PRODUCTS FOUND"      
+                   
+                    IsVisible="{Binding Products.Count}"
+                    
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+                    <!--
+                    IsVisible="{Binding Products.Count, Converter={StaticResource InverseCountToBoolConverter}}"
+                    -->
+       
+            </Grid>
+         
+            
+            <ListView 
+                x:Name="Products"       
+                IsVisible="{Binding Products.Count}"
+                ItemsSource="{Binding Products}"
+                HasUnevenRows="True"
+                SeparatorVisibility="None"
+                CachingStrategy="RecycleElement"
+                Style="{StaticResource ProductsListStyle}">
+                <!--
+                IsVisible="{Binding Products.Count, Converter={StaticResource CountToBoolConverter}}"
+                -->
+<!--
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior                    
+                        EventName="ItemTapped"
+                        Command="{Binding AddCatalogItemCommand}"
+                        EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}" />
+                </ListView.Behaviors>
+-->
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <templates:ProductTemplate />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            
+        </Grid>
+
+
+
+
+
+    </Grid>
 </ContentPage>

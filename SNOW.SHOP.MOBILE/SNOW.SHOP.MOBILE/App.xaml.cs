@@ -58,17 +58,17 @@ namespace SNOW.SHOP.MOBILE
         public App()
         {
             InitializeComponent();
-            MainPage = new MainPage();
-
+           
+            //MainPage = new MainPage();
+            //ViewModelLocator.RegisterDependencies(true);
             //MainPage = new CatalogView();
-            /*
+            
             InitApp();
 
-            if (Device.RuntimePlatform == Device.Windows)
+            if (Device.RuntimePlatform == Device.WinRT)
             {
                 InitNavigation();
             }
-            */
             
         }
 
@@ -81,18 +81,17 @@ namespace SNOW.SHOP.MOBILE
         private Task InitNavigation()
         {
             var navigationService = ViewModelLocator.Resolve<INavigationService>();
-            //return navigationService.InitializeAsync();
-            MainPage = new MainPage();
-            return navigationService.InitializeAsync(); ;
+            return navigationService.InitializeAsync();
+           
         }
 
-        protected override void OnStart()
-        //protected override async void OnStart()
+        //protected override void OnStart()
+        protected override async void OnStart()
         {
-            /*
+            
             base.OnStart();
 
-            if (Device.RuntimePlatform != Device.Windows)
+            if (Device.RuntimePlatform != Device.WinRT)
             {
                 await InitNavigation();
             }
@@ -108,7 +107,7 @@ namespace SNOW.SHOP.MOBILE
                 await SendCurrentLocation();
             }
             */
-           //base.OnResume();
+            base.OnResume();
             
         }
 

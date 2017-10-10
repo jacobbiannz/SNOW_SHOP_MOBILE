@@ -1,4 +1,4 @@
-// Helpers/Settings.cs
+
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 
@@ -39,6 +39,53 @@ namespace SNOW.SHOP.MOBILE.Helpers
         private static readonly string UrlBaseDefault = GlobalSetting.Instance.BaseEndpoint;
 
         #endregion
+        public static string AuthAccessToken
+        {
+            get => AppSettings.GetValueOrDefault(AccessToken, AccessTokenDefault);
+            set => AppSettings.AddOrUpdateValue(AccessToken, value);
+        }
+
+        public static string AuthIdToken
+        {
+            get => AppSettings.GetValueOrDefault(IdToken, IdTokenDefault);
+            set => AppSettings.AddOrUpdateValue(IdToken, value);
+        }
+
+        public static bool UseMocks
+        {
+            get => AppSettings.GetValueOrDefault(IdUseMocks, UseMocksDefault);
+            set => AppSettings.AddOrUpdateValue(IdUseMocks, value);
+        }
+
+        public static string UrlBase
+        {
+            get => AppSettings.GetValueOrDefault(IdUrlBase, UrlBaseDefault);
+            set => AppSettings.AddOrUpdateValue(IdUrlBase, value);
+        }
+
+        public static bool UseFakeLocation
+        {
+            get => AppSettings.GetValueOrDefault(IdUseFakeLocation, UseFakeLocationDefault);
+            set => AppSettings.AddOrUpdateValue(IdUseFakeLocation, value);
+        }
+
+        public static string Latitude
+        {
+            get => AppSettings.GetValueOrDefault(IdLatitude, FakeLatitudeDefault.ToString());
+            set => AppSettings.AddOrUpdateValue(IdLatitude, value);
+        }
+
+        public static string Longitude
+        {
+            get => AppSettings.GetValueOrDefault(IdLongitude, FakeLongitudeDefault.ToString());
+            set => AppSettings.AddOrUpdateValue(IdLongitude, value);
+        }
+
+        public static bool AllowGpsLocation
+        {
+            get => AppSettings.GetValueOrDefault(IdAllowGpsLocation, AllowGpsLocationDefault);
+            set => AppSettings.AddOrUpdateValue(IdAllowGpsLocation, value);
+        }
         /*
         public static string AuthAccessToken
         {

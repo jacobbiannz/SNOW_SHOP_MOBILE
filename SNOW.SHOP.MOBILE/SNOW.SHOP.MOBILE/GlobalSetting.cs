@@ -11,13 +11,14 @@ namespace SNOW.SHOP.MOBILE
         public const string AzureTag = "Azure";
         public const string MockTag = "Mock";
         public const string DefaultEndpoint = "http://localhost";
-        
+        //public const string DefaultEndpoint = "http://13.88.8.119";
+
         private string _baseEndpoint;
         private static readonly GlobalSetting _instance = new GlobalSetting();
 
         public GlobalSetting()
         {
-            AuthToken = "INSERT AUTHENTICATION TOKEN";
+            AuthToken = "123456abc";
             BaseEndpoint = DefaultEndpoint;
         }
 
