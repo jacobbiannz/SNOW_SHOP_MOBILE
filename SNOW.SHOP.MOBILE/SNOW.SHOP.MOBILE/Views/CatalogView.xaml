@@ -75,47 +75,31 @@
         <!-- CATALOG -->
         <Grid  
             Grid.Row="1">
-            <!--
             <Grid 
                 IsVisible="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}">
-            -->
-            <Grid 
-                IsVisible="{Binding IsBusy}">
-
-                   
                 <Label 
                     Text="NO PRODUCTS FOUND"      
-                   
-                    IsVisible="{Binding Products.Count}"
-                    
+                    IsVisible="{Binding Products.Count, Converter={StaticResource InverseCountToBoolConverter}}"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"/>
-                    <!--
-                    IsVisible="{Binding Products.Count, Converter={StaticResource InverseCountToBoolConverter}}"
-                    -->
-       
             </Grid>
-         
             
             <ListView 
                 x:Name="Products"       
-                IsVisible="{Binding Products.Count}"
+                IsVisible="{Binding Products.Count, Converter={StaticResource CountToBoolConverter}}"
                 ItemsSource="{Binding Products}"
                 HasUnevenRows="True"
                 SeparatorVisibility="None"
                 CachingStrategy="RecycleElement"
                 Style="{StaticResource ProductsListStyle}">
-                <!--
-                IsVisible="{Binding Products.Count, Converter={StaticResource CountToBoolConverter}}"
-                -->
-<!--
+               
                 <ListView.Behaviors>
                     <behaviors:EventToCommandBehavior                    
                         EventName="ItemTapped"
                         Command="{Binding AddCatalogItemCommand}"
                         EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}" />
                 </ListView.Behaviors>
--->
+                
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -123,13 +107,10 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+              
             </ListView>
-            
-            
+           
         </Grid>
-
-
-
 
 
     </Grid>

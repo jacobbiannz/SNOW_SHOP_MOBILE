@@ -51,7 +51,7 @@ namespace SNOW.SHOP.MOBILE.Effects
         private class CircleEffect : RoutingEffect
         {
             public CircleEffect()
-                : base("SNOW.SHOW.MOBILE.CircleEffect")
+                : base("SNOW.SHOP.MOBILE.CircleEffect")
             {
             }
         }

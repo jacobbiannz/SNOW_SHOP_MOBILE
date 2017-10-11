@@ -44,7 +44,11 @@
     <Compile Include="Controls\AddBasketButton.xaml.cs">
       <DependentUpon>AddBasketButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\CountToBoolConverter.cs" />
     <Compile Include="Converters\InverseBoolConverter.cs" />
+    <Compile Include="Converters\InverseCountToBoolConverter.cs" />
+    <Compile Include="Converters\ItemTappedEventArgsConverter.cs" />
+    <Compile Include="Converters\ToUpperConverter.cs" />
     <Compile Include="Effects\EntryLineColorEffect.cs" />
     <Compile Include="Effects\ThemeEffects.cs" />
     <Compile Include="Extensions\ObservableExtension.cs" />
