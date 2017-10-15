@@ -92,13 +92,16 @@
                         WinPhone="Assets/noimage.png"/>
                 </ffimageloading:CachedImage.ErrorPlaceholder>
             </ffimageloading:CachedImage>
+            
+            <!--
             <Grid
                 Grid.Row="0"
                 Grid.RowSpan="2"
                 Style="{StaticResource AddButtonStyle}">
                 <controls:AddBasketButton />
             </Grid>
-
+            -->
+            
             <!-- NAME -->
             
             <Label 
