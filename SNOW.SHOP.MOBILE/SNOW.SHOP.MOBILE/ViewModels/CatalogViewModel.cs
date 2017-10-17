@@ -115,7 +115,7 @@ namespace SNOW.SHOP.MOBILE.ViewModels
             IsBusy = true;
 
             // Filter catalog products
-           // MessagingCenter.Send(this, MessageKeys.Filter);
+            MessagingCenter.Send(this, MessageKeys.Filter);
             Products = await _productsService.FilterAsync(Brand.Id, Type.Id);
 
             IsBusy = false;

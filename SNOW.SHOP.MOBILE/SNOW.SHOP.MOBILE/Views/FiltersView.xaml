@@ -57,7 +57,6 @@
 
         </ResourceDictionary>
     </slideOverKit:SlideMenuView.Resources>
-    
     <Grid    
     Padding="0"            
     ColumnSpacing="0"    
@@ -88,8 +87,8 @@
         <Picker
       Grid.Row="1"
       Title="TYPE"
-      ItemsSource="{Binding Cateogries}"
-      SelectedItem="{Binding Cateogry, Mode=TwoWay}"
+      ItemsSource="{Binding Types}"
+      SelectedItem="{Binding Type, Mode=TwoWay}"
       Style="{StaticResource FilterPickerStyle}">
             <Picker.HeightRequest>
                 <OnPlatform 

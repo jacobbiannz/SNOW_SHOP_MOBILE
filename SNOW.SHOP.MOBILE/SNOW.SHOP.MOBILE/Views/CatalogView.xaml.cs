@@ -15,21 +15,6 @@ namespace SNOW.SHOP.MOBILE.Views
 {
     public partial class CatalogView : ContentPage, IMenuContainerPage
     {
-        //private FiltersView _filterView = new FiltersView();
-
-        public CatalogView()
-        {
-            InitializeComponent();
-           
-            //SlideMenu = _filterView;
-            /*
-            MessagingCenter.Subscribe<CatalogViewModel>(this, MessageKeys.Filter, (sender) =>
-            {
-                Filter();
-            });
-            */
-        }
-
         public Action HideMenuAction
         {
             get;
@@ -48,11 +33,26 @@ namespace SNOW.SHOP.MOBILE.Views
             set;
         }
 
+        private FiltersView _filterView = new FiltersView();
+
+        public CatalogView()
+        {
+            InitializeComponent();
+           
+            this.SlideMenu = _filterView;
+          
+            MessagingCenter.Subscribe<CatalogViewModel>(this, MessageKeys.Filter, (sender) =>
+            {
+                Filter();
+            });
+            
+        }
+
         protected override void OnBindingContextChanged()
         {
             base.OnBindingContextChanged();
 
-           // _filterView.BindingContext = BindingContext;
+            _filterView.BindingContext = BindingContext;
         }
 
         private void OnFilterChanged(object sender, EventArgs e)
@@ -62,6 +62,7 @@ namespace SNOW.SHOP.MOBILE.Views
 
         private void Filter()
         {
+
             if (SlideMenu.IsShown)
             {
                 HideMenuAction?.Invoke();
@@ -71,5 +72,6 @@ namespace SNOW.SHOP.MOBILE.Views
                 ShowMenuAction?.Invoke();
             }
         }
+            
     }
 }
